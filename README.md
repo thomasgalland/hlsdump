@@ -9,23 +9,22 @@ What is (c) Apple Http Live Streaming protocol (HLS) ?
 Why dumping HLS streams with node.js ?
 --------------------------------------
 
-How use it ?
+How to use it ?
 ------------
 
-How install it ?
+How to install it ?
 ----------------
 
 In the future ?
 ---------------
 - Add multi-bitrate option to dumping all streams in a playlist
-- Add statistics to use that library in a streamming monitor
+- Add statistics to use this library in a streaming monitor
 - Create a npm package with this library
 - Create a bash program using this library
 
 Thanks to:
 ----------
 - Jay Salvat for code reviewing
-- Céline Bontemps for english documentation reviewing
 
 Licence:
 --------
