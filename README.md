@@ -1,7 +1,7 @@
 Hlsdump
 =======
 
-This is a library for node.js to dump (c)Apple Http Live Streaming protocol.
+This is a library to node.js for dumping (c)Apple Http Live Streaming protocol.
 
 What is (c) Apple Http Live Streaming protocol (HLS) ?
 ------------------------------------------------------
@@ -12,10 +12,15 @@ Why dumping HLS streams with node.js ?
 How use it ?
 ------------
 
-In the futur ?
+How install it ?
+----------------
+
+In the future ?
 ---------------
 - Add multi-bitrate option to dumping all streams in a playlist
 - Add statistics to use that library in a streamming monitor
+- Create a npm package with this library
+- Create a bash program using this librairy
 
 Thanks to:
 ----------
