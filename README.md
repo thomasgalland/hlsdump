@@ -20,7 +20,7 @@ In the future ?
 - Add multi-bitrate option to dumping all streams in a playlist
 - Add statistics to use that library in a streamming monitor
 - Create a npm package with this library
-- Create a bash program using this librairy
+- Create a bash program using this library
 
 Thanks to:
 ----------
