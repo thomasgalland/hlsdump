@@ -22,12 +22,19 @@ How to use it ?
   var hlsdump = require('./lib/hlsdump.js');
 
   var settings = {
+
       url: 'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8', // Streaming Url 
+
       duration: 10, // Dumping duration => default 10 seconds
+
       filename: 'dump.mp4' // Filename of the dumped stream => default dump.mp4
+
       ffmpeg: {
+
         encode: true, => Enabled ffmpeg encoding => default false
+
         exec: 'ffmpeg' => Path to the FFMpeg exec => default ffmpeg
+        
       }
   };
 
