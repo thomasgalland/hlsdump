@@ -1,0 +1,38 @@
+{
+  "name": "hlsdump",
+  "description": "hlsdump is a library to node.js for dumping (c) Apple Http Live Streaming protocol.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Thomas Galland",
+    "email": "thomasgalland@rocketmail.com"
+  },
+  "contributors": [
+    { 
+      "name": "Thomas Galland",
+      "email": "thomasgalland@rocketmail.com"
+    },
+    { 
+      "name": "Jay Salvat"
+    }    
+  ],
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "main": "./lib/hlsdump.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasgalland/hlsdump.git"
+  },
+  "keywords": [
+    "streaming",
+    "dumping",
+    "http live streaming",
+    "hls",
+    "apple",
+    "dump"
+  ],
+  "analyze": false,
+  "license": "MIT"
+}
