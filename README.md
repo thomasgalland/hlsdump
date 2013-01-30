@@ -45,9 +45,7 @@ How to use it ?
 How to install it ?
 ----------------
 - Please install before FFMPEG if you whant some statistics and a MP4 file totaly correct.
-- With NPM
-    
-    npm install hlsdump
+- With NPM: npm install hlsdump
 
 Statistics :
 ------------
