@@ -1,7 +1,7 @@
 {
   "name": "hlsdump",
   "description": "hlsdump is a library to node.js for dumping (c) Apple Http Live Streaming protocol.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Thomas Galland",
     "email": "thomasgalland@rocketmail.com"
