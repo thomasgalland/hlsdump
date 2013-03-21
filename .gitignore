@@ -1,2 +1,3 @@
 .DS_Store
-dump.mp4
+dump.ts
+node_modules

@@ -14,67 +14,58 @@ See wikipedia article http://en.wikipedia.org/wiki/HTTP_Live_Streaming
 Why dumping HLS streams with node.js ?
 --------------------------------------
 
-HLS is a streaming protocol based on HTTP protcol and HTTP library in node.js is very interesseting to using it in a dumping program, maybe to make a monitoring tool.
+HLS is a streaming protocol based on HTTP protcol and HTTP library in node.js is very interesseting to using it in a dumping program, maybe make a monitoring tool.
 
 How to use it ?
 ------------
 
-    var hlsdump = require('./lib/hlsdump.js');
+  var settings = {
+    url: 'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8', // streaming Url Vod or live stream
+    duration: 20, // Duration of dumping
+    bandwidth: 300000, // Bandwidth for multibitrate stream (optional)
+    filename: 'dump.ts', // Filename
+    temporary_folder: 'tmp/', // Temporary Folder for the chunck ts files
+    retry : 3 // if 404 error, number of retry
+  };
 
-    var settings = {
-       url: 'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8', // Streaming Url 
-       duration: 10, // Dumping duration => default 10 seconds
-       filename: 'dump.mp4' // Filename of the dumped stream => default dump.mp4
-       ffmpeg: {
-         encode: true, => Enabled ffmpeg encoding => default false
-         exec: 'ffmpeg' => Path to the FFMpeg exec => default ffmpeg
-       }
-    };
+  var dump = new hlsdump(settings, function (err, result) {
+    if (err !== null) {
+      console.error('error');
+      console.error(err);
+    } else {
+      console.log('result');
+      console.log(result);
+    }
+  });
 
-    var dump = new hlsdump.dump(settings, function (err, result) {
-     'use strict';
-     if (err !== null) {
-         console.error(err);
-     } else {
-         console.log(result);
-     }
-    });
+  dump.on('playlist', function (playlist) {
+    console.log("New playlist :");
+    console.log(playlist);
+  });
 
-    dump.start();
+  dump.on('error', function (err) {
+    console.error("Error:");
+    console.error(err);
+  });
+
+  dump.on('downloaded', function (files) {
+    console.log("Downloaded:");
+    console.log(files);
+  });
+
+  dump.on('done', function () {
+    console.log("Done");
+  });
+
+  dump.start();
 
 How to install it ?
 ----------------
-- Please install before FFMPEG if you whant some statistics and a MP4 file totaly correct.
 - With NPM: npm install hlsdump
 
-Statistics :
-------------
-
-If ffmepg is installed and set in settings, the return value is like that:
-
-    {
-      bitrate: 134.5, // in kb/s
-      duration: 10, // in seconds
-      audio: {
-        codec: 'aac',
-        sampling: 22050, // in Hz
-        channels: 'mono',
-        bitrate: 52 // in kb/s
-      },
-      video: {
-        codec: 'h264',
-        colorspace: 'yuv420p',
-        width: 192,
-        heigth: 144,
-        fps: null,
-        bitrate: 82.5
-      }
-    }
 
 In the future ?
 ---------------
-- Add multi-bitrate option to dumping all streams in a playlist
-- Create a npm package with this library
 - Create a bash program using this library
 
 
