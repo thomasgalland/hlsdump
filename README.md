@@ -19,45 +19,45 @@ HLS is a streaming protocol based on HTTP protcol and HTTP library in node.js is
 How to use it ?
 ------------
 
-  var settings = {
-    url: 'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8', // streaming Url Vod or live stream
-    duration: 20, // Duration of dumping
-    bandwidth: 300000, // Bandwidth for multibitrate stream (optional)
-    filename: 'dump.ts', // Filename
-    temporary_folder: 'tmp/', // Temporary Folder for the chunck ts files
-    retry : 3 // if 404 error, number of retry
-  };
+    var settings = {
+      url: 'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8', // streaming Url Vod or live stream
+      duration: 20, // Duration of dumping
+      bandwidth: 300000, // Bandwidth for multibitrate stream (optional)
+      filename: 'dump.ts', // Filename
+      temporary_folder: 'tmp/', // Temporary Folder for the chunck ts files
+      retry : 3 // if 404 error, number of retry
+    };
 
-  var dump = new hlsdump(settings, function (err, result) {
-    if (err !== null) {
-      console.error('error');
+    var dump = new hlsdump(settings, function (err, result) {
+      if (err !== null) {
+        console.error('error');
+        console.error(err);
+      } else {
+        console.log('result');
+        console.log(result);
+      }
+    });
+
+    dump.on('playlist', function (playlist) {
+      console.log("New playlist :");
+      console.log(playlist);
+    });
+
+    dump.on('error', function (err) {
+      console.error("Error:");
       console.error(err);
-    } else {
-      console.log('result');
-      console.log(result);
-    }
-  });
+    });
 
-  dump.on('playlist', function (playlist) {
-    console.log("New playlist :");
-    console.log(playlist);
-  });
+    dump.on('downloaded', function (files) {
+      console.log("Downloaded:");
+      console.log(files);
+    });
 
-  dump.on('error', function (err) {
-    console.error("Error:");
-    console.error(err);
-  });
+    dump.on('done', function () {
+      console.log("Done");
+    });
 
-  dump.on('downloaded', function (files) {
-    console.log("Downloaded:");
-    console.log(files);
-  });
-
-  dump.on('done', function () {
-    console.log("Done");
-  });
-
-  dump.start();
+    dump.start();
 
 How to install it ?
 ----------------
